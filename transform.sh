@@ -49,8 +49,8 @@ do
         mkdir -p "$outdir"
 
 ## RUN
-#        ffmpeg -loglevel info -i "$fullfile" -codec:a libmp3lame -qscale:a 0 "$outfile"
-        avconv -n -nostats -loglevel info -i "$fullfile" -codec:a libmp3lame -qscale:a 0 "$outfile"
+[ -f "$outfile" ] || ffmpeg -loglevel info -i "$fullfile" -map_metadata 0 -id3v2_version 3 -qscale:a 0 "$outfile"
+#        avconv -n -nostats -loglevel info -i "$fullfile" -codec:a libmp3lame -qscale:a 0 "$outfile"
 ## just for testing
 #        sleep 1
 done
